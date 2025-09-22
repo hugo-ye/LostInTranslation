@@ -51,7 +51,6 @@ public class JSONTranslator implements Translator {
 
                 List<String> languages = new ArrayList<>();
 
-                // TODO Task C: record this countryCode in the correct instance variable
                 countryCodes.add(countryCode);
 
 
@@ -59,7 +58,6 @@ public class JSONTranslator implements Translator {
                 for (String key : countryData.keySet()) {
                     if (!key.equals("id") && !key.equals("alpha2") && !key.equals("alpha3")) {
                         String languageCode = key;
-                        // TODO Task C: record this translation in the appropriate instance variable
                         translations.put(countryCode + "-" + languageCode, countryData.getString(key));
 
                         if (!languageCodes.contains(languageCode)) {
