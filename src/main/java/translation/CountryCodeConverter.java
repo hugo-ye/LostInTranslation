@@ -27,6 +27,7 @@ public class CountryCodeConverter {
 
     /**
      * Overloaded constructor that allows us to specify the filename to load the country code data from.
+     *
      * @param filename the name of the file in the resources folder to load the data from
      * @throws RuntimeException if the resources file can't be loaded properly
      */
@@ -49,8 +50,7 @@ public class CountryCodeConverter {
                 countryToCountryCode.put(country, alpha3);
 
             }
-        }
-        catch (IOException | URISyntaxException ex) {
+        } catch (IOException | URISyntaxException ex) {
             throw new RuntimeException(ex);
         }
 
@@ -58,30 +58,30 @@ public class CountryCodeConverter {
 
     /**
      * Return the name of the country for the given country code.
+     *
      * @param code the 3-letter code of the country
      * @return the name of the country corresponding to the code
      */
     public String fromCountryCode(String code) {
-        code = this.countryCodeToCountry.get(code);
-        return code;
+        return this.countryCodeToCountry.get(code.toLowerCase());
     }
 
     /**
      * Return the code of the country for the given country name.
+     *
      * @param country the name of the country
      * @return the 3-letter code of the country
      */
     public String fromCountry(String country) {
-        country =this.countryToCountryCode.get(country);
-        return country;
+        return this.countryToCountryCode.get(country);
     }
 
     /**
      * Return how many countries are included in this country code converter.
+     *
      * @return how many countries are included in this country code converter.
      */
     public int getNumCountries() {
-        int length = this.countryCodeToCountry.size();
-        return length;
+        return countryCodeToCountry.size();
     }
 }
